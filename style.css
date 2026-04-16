@@ -1,0 +1,406 @@
+/* =========================================
+   RESET
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   BODY
+========================================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 30px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at top left, #1b1b2f 0%, #0a0a0a 35%),
+        linear-gradient(to bottom, #050505, #101010);
+}
+
+/* =========================================
+   ESTRUTURA PRINCIPAL
+========================================= */
+.app {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1000px;
+    padding: 32px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #161616, #1f1f1f);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Espaçamento entre seções */
+.dashboard-header,
+.form-section,
+.stats-section,
+.filter-section,
+.tasks-section {
+    margin-bottom: 28px;
+}
+
+/* =========================================
+   TÍTULOS DE SEÇÃO
+========================================= */
+.section-title {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: #e5e7eb;
+}
+
+/* =========================================
+   TOPO
+========================================= */
+.title-box {
+    padding: 26px;
+    text-align: center;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #020617, #0f172a, #020617);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow:
+        0 0 20px rgba(59, 130, 246, 0.15),
+        0 0 40px rgba(59, 130, 246, 0.08),
+        inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.main-title {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #3b82f6, #22d3ee, #a78bfa, #3b82f6);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 6s linear infinite, pulseGlow 2s ease-in-out infinite;
+}
+
+.subtitle {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #cbd5f5;
+}
+
+/* =========================================
+   FORMULÁRIO E FILTROS
+========================================= */
+.form-grid,
+.filter-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.form-grid {
+    grid-template-columns: 1fr 1fr 220px;
+    margin-bottom: 14px;
+}
+
+.filter-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: #ffffff;
+    background: #242424;
+    border: 1px solid #343434;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-field::placeholder {
+    color: #9ca3af;
+}
+
+.input-field:focus {
+    border-color: #3b82f6;
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.20),
+        0 0 12px rgba(59, 130, 246, 0.12);
+}
+
+.add-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(37, 99, 235, 0.28);
+}
+
+.add-button:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   MÉTRICAS
+========================================= */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.info-box {
+    padding: 22px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #202020, #292929);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+    transition: 0.3s;
+}
+
+.info-box:hover {
+    transform: translateY(-3px);
+}
+
+.info-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.info-number {
+    font-size: 30px;
+    font-weight: bold;
+    color: #f8fafc;
+}
+
+/* =========================================
+   BLOCO DOS FILTROS
+========================================= */
+.filter-section {
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   LISTA DE TAREFAS
+========================================= */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    color: #ffffff;
+    transition: 0.3s;
+    animation: fadeInUp 0.4s ease;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.task-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #ffffff;
+    flex-shrink: 0;
+}
+
+.task-text {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.task-category {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.delete-button {
+    padding: 11px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-button:hover {
+    transform: scale(1.03);
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================
+   TAREFA CONCLUÍDA
+========================================= */
+.task-card.completed {
+    opacity: 0.72;
+    filter: saturate(0.75);
+    animation: completeTask 0.3s ease;
+}
+
+.task-card.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.75;
+}
+
+/* =========================================
+   PRIORIDADES
+========================================= */
+.priority-high {
+    background: linear-gradient(135deg, #4c1111, #7f1d1d);
+    border-left: 7px solid #ef4444;
+}
+
+.priority-medium {
+    background: linear-gradient(135deg, #5b4508, #a16207);
+    border-left: 7px solid #facc15;
+}
+
+.priority-low {
+    background: linear-gradient(135deg, #0d3b1a, #166534);
+    border-left: 7px solid #22c55e;
+}
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+@keyframes gradientMove {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 300%;
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes completeTask {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.98);
+        opacity: 0.7;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .dashboard {
+        padding: 22px;
+    }
+
+    .main-title {
+        font-size: 29px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .task-left {
+        align-items: flex-start;
+    }
+
+    .delete-button {
+        width: 100%;
+    }
+}
